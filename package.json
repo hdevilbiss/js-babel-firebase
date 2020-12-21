@@ -1,0 +1,31 @@
+{
+  "name": "my-js-projects",
+  "version": "1.0.0",
+  "description": "5 projects completed for the freeCodeCamp JavaScript certificate. Uses Babel for transpiling ES6.",
+  "main": "index.html",
+  "scripts": {
+    "build": "babel src --out-dir public",
+    "watch": "babel src --watch --out-dir public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdevilbiss/fcc-projects.git"
+  },
+  "keywords": [
+    "freeCodeCamp",
+    "JavaScript",
+    "ES6",
+    "Babel"
+  ],
+  "author": "Hannah DeVilbiss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hdevilbiss/fcc-projects/issues"
+  },
+  "homepage": "https://github.com/hdevilbiss/fcc-projects#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  }
+}

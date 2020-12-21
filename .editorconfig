@@ -1,0 +1,17 @@
+# http://editorconfig.org
+
+# this file is the top-most editorconfig file
+root = true
+
+# all files
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# web files
+[*.{html,css,less,js}]
+indent_size = 2
