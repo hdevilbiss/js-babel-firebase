@@ -1,6 +1,4 @@
-# My freeCodeCamp Projects
-
-5 projects completed for the [freeCodeCamp](https://www.freecodecamp.org/learn) JavaScript certificate.
+# JavaScript, Babel, and Firebase
 
 This project uses the [Babel CLI](https://babeljs.io/docs/en/babel-cli) for transpiling vanilla ES6 into browser-compatible code, and [Google Firebase](https://firebase.google.com/) for hosting and deployment.
 
@@ -11,7 +9,7 @@ This project uses the [Babel CLI](https://babeljs.io/docs/en/babel-cli) for tran
 1. Initiate a repository locally: `git init`
 1. On GitHub or similar, create your own git repo to serve as the remote for your project.
 1. Within the local copy, add the new repository as the remote url: `git remote add origin <new-repo-url>`
-1. Follow the steps below to setup the Node dependencies and setup deployment to Firebase.
+1. Follow the steps below to setup the Node dependencies and setup hosting and deployment to Firebase.
 
 ## Node Prerequisite
 
@@ -37,21 +35,40 @@ Firebase is a Google Backend as a Service (BaaS) provider which makes deploying 
 
 ### Shout-out
 
-📹🔥 Thanks to **[Fireship](https://www.youtube.com/watch?v=q5J5ho7YUhA)** for providing **informative tutorials on YouTube**.
+📹🔥 Thanks to **[Fireship](https://www.youtube.com/watch?v=q5J5ho7YUhA)** for providing **informative tutorials on YouTube**
 
-1. Install firebase-tool globally. `npm install -g firebase-tools`
+I would recommend you follow the Fireship tutorial, although I have outlined most of the steps needed for hosting and deployment below.
+
+You can also follow the steps in the [Firebase web setup documentation](https://firebase.google.com/docs/web/setup).
+
+### Create a Project
+
+🔗 Link to the [Firebase console](https://console.firebase.google.com/u/0/)
+
+You will need to add Firebase scripts to your HTML document.
+
+1. Create a new project on the console.
+1. Unless you really want Google Analytics, untoggle "Enable Google Analytics for this project".
+1. On the "Get started by adding Firebase to your app", select the "Web" button, `</>`.
+1. Name your app and click "Next".
+1. Copy-paste the "Add Firebase SDK" code into the `/public/index.html` file _"into the bottom of your `<body>` tag, but before you use any Firebase services"_
+1. Add additional features, if needed; a [CDN link](https://firebase.google.com/docs/web/setup#expandable-8) will get you setup quickly. There are other options, such as [using Node to install](https://firebase.google.com/docs/web/setup#expandable-10) them.
+
+### Command Line Steps
+
+1. Install firebase-tools globally. `npm install -g firebase-tools`
 1. Check firebase was installed. `firebase --version`
 1. Login to your Firebase account. `firebase login`
 1. You will be redirected to login to your Google account.
 1. Logout of your Firebase account if needed. `firebase logout`
 1. Initiate a Firebase project in your VSCode workspace. `firebase init`
-    - Enable options with the space bar, select them by entering. Finish selecting all options.
-    - Choose to deploy from `public`.
+    - Enable options with the `space bar`.
+        - Choose to deploy from `public`.
+        - Choose to setup hosting, since we didn't do this when creating the app.
+    - Finish your selections with `Enter`. This will generate new files in your repository.
 1. If you are using emulators for hosting, then you can start the preview with `firebase emulators:start`
 1. Alternatively, you can use the `firebase serve` command.
 1. Deploy your app to Firebase. `firebase deploy`
-
-🔗 Link to the [Firebase console](https://console.firebase.google.com/u/0/)
 
 ### Easy Continuous Integration with Firebase
 
