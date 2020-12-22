@@ -37,66 +37,11 @@ Firebase is a Google Backend as a Service (BaaS) provider which makes deploying 
 
 📹🔥 Thanks to **[Fireship](https://www.youtube.com/watch?v=q5J5ho7YUhA)** for providing **informative tutorials on YouTube**
 
-I would recommend you follow the Fireship tutorial, although I have outlined most of the steps needed for hosting and deployment below.
+I would recommend you follow the Fireship tutorial, because it'll get you setup with user authentication with Google, a NoSQL database, and database rules.
 
-You can also follow the steps in the [Firebase web setup documentation](https://firebase.google.com/docs/web/setup).
+However, if you are only interested in hosting static files, then you can checkout the main steps needed for **hosting and deployment in the [Wiki section of this repo](https://github.com/hdevilbiss/js-babel-firebase/wiki/Deploy-with-Firebase)**.
 
-### Create a Project
-
-🔗 Link to the [Firebase console](https://console.firebase.google.com/u/0/)
-
-You will need to add Firebase scripts to your HTML document.
-
-1. Create a new project on the console.
-1. Unless you really want Google Analytics, untoggle "Enable Google Analytics for this project".
-1. On the "Get started by adding Firebase to your app", select the "Web" button, `</>`.
-1. Name your app and click "Next".
-1. Copy-paste the "Add Firebase SDK" code into the `/public/index.html` file _"into the bottom of your `<body>` tag, but before you use any Firebase services"_
-1. Add additional features, if needed; a [CDN link](https://firebase.google.com/docs/web/setup#expandable-8) will get you setup quickly. There are other options, such as [using Node to install](https://firebase.google.com/docs/web/setup#expandable-10) them.
-
-### Command Line Steps
-
-1. Install firebase-tools globally. `npm install -g firebase-tools`
-1. Check firebase was installed. `firebase --version`
-1. Login to your Firebase account. `firebase login`
-1. You will be redirected to login to your Google account.
-1. Logout of your Firebase account if needed. `firebase logout`
-1. Initiate a Firebase project in your VSCode workspace. `firebase init`
-    - Enable options with the `space bar`.
-        - Choose to deploy from `public`.
-        - Choose to setup hosting, since we didn't do this when creating the app.
-    - Finish your selections with `Enter`. This will generate new files in your repository.
-1. If you are using emulators for hosting, then you can start the preview with `firebase emulators:start`
-1. Alternatively, you can use the `firebase serve` command.
-1. Deploy your app to Firebase. `firebase deploy`
-
-### Easy Continuous Integration with Firebase
-
-During the `firebase init` session, you will have the option to choose whether you want to auto-deploy on merge to the main branch and/or on pull request. As long as you want your app to visible live from the web, you should do it! Get your feet wet with CI!
-
-This initiation step will setup two workflow documents in a `/.github` folder, which are in YAML format.
-
-You can specify build steps which run automatically with a GitHub Action; this is a great time to auto-transpile your ES6.
-
-Here is an example of how this document will look. Please take note of the `run` step: **`npm run i && npm run build`**, which first installs node_modules, then runs the build command specified in the `package.json` file.
-
-If you also need to build LESS or SASS, you can add them to your `build` command.
-
-```yaml
-jobs:
-    build_and_preview:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - run: npm run i && npm run build
-            - uses: FirebaseExtended/action-hosting-deploy@v0
-              with:
-                  repoToken: "${{ secrets.GITHUB_TOKEN }}"
-                  firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_APP_NAME }}"
-                  projectId: app-name
-              env:
-                  FIREBASE_CLI_PREVIEWS: hostingchannels
-```
+You can also checkout the [Firebase web setup documentation](https://firebase.google.com/docs/web/setup).
 
 ### Firebase Documentation
 
